@@ -63,6 +63,7 @@ A estrutura do projeto é organizada em camadas responsáveis por diferentes res
 
 
 # Modelagem do banco 
-<img width="1067" height="672" alt="Captura de tela 2026-03-12 144657" src="https://github.com/user-attachments/assets/c801f41d-60b3-4f31-9f31-a1d5e9b0143f" />
+<img width="877" height="558" alt="Captura de tela 2026-03-12 145729" src="https://github.com/user-attachments/assets/fc1f6138-041e-464f-85b6-996e80a9bab5" />
+
 
 
