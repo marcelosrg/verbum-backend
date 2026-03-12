@@ -54,6 +54,7 @@ A estrutura do projeto é organizada em camadas responsáveis por diferentes res
 - Spring Web
 - Spring Data JPA
 - Hibernate
+
 - JWT Authentication
 - OAuth - Google
 - PostgreSQL
@@ -62,4 +63,6 @@ A estrutura do projeto é organizada em camadas responsáveis por diferentes res
 
 
 # Modelagem do banco 
+<img width="1067" height="672" alt="Captura de tela 2026-03-12 144657" src="https://github.com/user-attachments/assets/c801f41d-60b3-4f31-9f31-a1d5e9b0143f" />
+
 
