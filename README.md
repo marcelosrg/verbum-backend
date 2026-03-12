@@ -59,3 +59,7 @@ A estrutura do projeto é organizada em camadas responsáveis por diferentes res
 - PostgreSQL
 - RabbitMQ
 - Docker
+
+
+# Modelagem do banco 
+
