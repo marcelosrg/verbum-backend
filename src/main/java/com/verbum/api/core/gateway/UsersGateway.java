@@ -2,6 +2,6 @@ package com.verbum.api.core.gateway;
 
 import com.verbum.api.core.domain.User;
 
-public interface UseGateway {
+public interface UsersGateway {
     User createUser(User user);
 }
