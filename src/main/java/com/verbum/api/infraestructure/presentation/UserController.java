@@ -2,32 +2,30 @@ package com.verbum.api.infraestructure.presentation;
 
 import com.verbum.api.core.domain.User;
 import com.verbum.api.core.useCases.CreateUsersUseCase;
+import com.verbum.api.core.useCases.UpdateUserUseCase;
 import com.verbum.api.infraestructure.dtos.UserDto;
 import com.verbum.api.infraestructure.mapper.UserDtoMapper;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping(name = "api/v1/users")
+@RequestMapping("api/v1/users")
 public class UserController {
     private final CreateUsersUseCase createUsersUseCase;
     private final UserDtoMapper userDtoMapper;
-
-    @Autowired
+    private final UpdateUserUseCase updateUserUseCase;
     public UserController(CreateUsersUseCase createUsersUseCase,
-                          UserDtoMapper userDtoMapper) {
+                          UserDtoMapper userDtoMapper,
+                           UpdateUserUseCase updateUserUseCase) {
         this.createUsersUseCase = createUsersUseCase;
         this.userDtoMapper = userDtoMapper;
+        this.updateUserUseCase = updateUserUseCase;
     }
-    @PostMapping("create-user")
+    @PostMapping
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
         User createUser = createUsersUseCase.execute(userDtoMapper.toDomain(userDto));
         UserDto responseDto = userDtoMapper.toDto(createUser);
@@ -38,5 +36,17 @@ public class UserController {
                 .toUri();
 
         return ResponseEntity.created(location).body(responseDto);
+    }
+
+    @PutMapping("{id}")
+    public  ResponseEntity<UserDto> updateUser(@PathVariable("id") UUID id,  @RequestBody  UserDto userDto) {
+        User userUpdated = updateUserUseCase.execute(id, userDtoMapper.toDomain(userDto));
+        return ResponseEntity.ok().body(userDtoMapper.toDto(userUpdated));
+    }
+
+
+    @GetMapping
+    public String hello() {
+        return "Hello world";
     }
 }
