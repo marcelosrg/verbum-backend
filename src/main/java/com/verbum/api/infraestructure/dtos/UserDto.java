@@ -1,4 +1,14 @@
 package com.verbum.api.infraestructure.dtos;
 
-public class UserDto {
+import com.verbum.api.core.enums.Role;
+
+import java.util.UUID;
+
+public record UserDto(
+        UUID id,
+        String email,
+        String password,
+        Boolean isActive,
+        Role role
+) {
 }
