@@ -4,6 +4,8 @@ import com.verbum.api.core.domain.User;
 
 
 public interface AuthGateway {
-    User createUser(User user);
+    User registerUser(User user);
+
+    boolean checkEmail(String email);
 
 }

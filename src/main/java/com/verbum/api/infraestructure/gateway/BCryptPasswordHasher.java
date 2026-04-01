@@ -16,7 +16,6 @@ public class BCryptPasswordHasher implements PasswordHasher {
         this.passwordEncoder = new BCryptPasswordEncoder();
     }
 
-
     @Override
     public String hashPassord(String rawPassword) {
         return passwordEncoder.encode(rawPassword);

@@ -7,8 +7,6 @@ import com.verbum.api.infraestructure.persistence.UserEntity;
 import com.verbum.api.infraestructure.persistence.UserRepository;
 import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
 @Component
 public class UserRepositoryGateway implements AuthGateway {
 
@@ -22,9 +20,14 @@ public class UserRepositoryGateway implements AuthGateway {
     }
 
     @Override
-    public User createUser(User user) {
+    public User registerUser(User user) {
         UserEntity userEntity = userRepository.save(userEntityMapper.toEntity(user)); ;
         return userEntityMapper.toDomain(userEntity);
+    }
+
+    @Override
+    public boolean checkEmail(String email) {
+        return userRepository.existsByEmail(email);
     }
 
 }
