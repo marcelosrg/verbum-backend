@@ -8,7 +8,14 @@ public record User(
         UUID id,
         String email,
         String password,
-        Boolean isActive,
+        boolean isActive,
         Role role
 ) {
+    public User withPassword(String newPassword) {
+        return new User(id, email, newPassword, isActive, role);
+    }
+
+    public boolean isActiveUser() {
+        return isActive;
+    }
 }

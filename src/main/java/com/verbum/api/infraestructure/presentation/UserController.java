@@ -1,8 +1,7 @@
 package com.verbum.api.infraestructure.presentation;
 
 import com.verbum.api.core.domain.User;
-import com.verbum.api.core.useCases.CreateUsersUseCase;
-import com.verbum.api.core.useCases.UpdateUserUseCase;
+import com.verbum.api.core.useCases.Auth.RegisterUserUseCase;
 import com.verbum.api.infraestructure.dtos.UserDto;
 import com.verbum.api.infraestructure.mapper.UserDtoMapper;
 import org.springframework.http.ResponseEntity;
@@ -13,21 +12,18 @@ import java.net.URI;
 import java.util.UUID;
 
 @RestController
-@RequestMapping("api/v1/users")
+@RequestMapping("/api/v1/auth")
 public class UserController {
-    private final CreateUsersUseCase createUsersUseCase;
+    private final RegisterUserUseCase registerUserUseCase;
     private final UserDtoMapper userDtoMapper;
-    private final UpdateUserUseCase updateUserUseCase;
-    public UserController(CreateUsersUseCase createUsersUseCase,
-                          UserDtoMapper userDtoMapper,
-                           UpdateUserUseCase updateUserUseCase) {
-        this.createUsersUseCase = createUsersUseCase;
+    public UserController(RegisterUserUseCase registerUserUseCase,
+                          UserDtoMapper userDtoMapper) {
+        this.registerUserUseCase = registerUserUseCase;
         this.userDtoMapper = userDtoMapper;
-        this.updateUserUseCase = updateUserUseCase;
     }
-    @PostMapping
+    @PostMapping()
     public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
-        User createUser = createUsersUseCase.execute(userDtoMapper.toDomain(userDto));
+        User createUser = registerUserUseCase.execute(userDtoMapper.toDomain(userDto));
         UserDto responseDto = userDtoMapper.toDto(createUser);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
@@ -36,12 +32,6 @@ public class UserController {
                 .toUri();
 
         return ResponseEntity.created(location).body(responseDto);
-    }
-
-    @PutMapping("{id}")
-    public  ResponseEntity<UserDto> updateUser(@PathVariable("id") UUID id,  @RequestBody  UserDto userDto) {
-        User userUpdated = updateUserUseCase.execute(id, userDtoMapper.toDomain(userDto));
-        return ResponseEntity.ok().body(userDtoMapper.toDto(userUpdated));
     }
 
 
