@@ -8,12 +8,12 @@ import com.verbum.api.infraestructure.persistence.UserRepository;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UserRepositoryGateway implements AuthGateway {
+public class AuthRepositoryGateway implements AuthGateway {
 
     private final UserRepository userRepository;
     private final UserEntityMapper userEntityMapper;
 
-    public UserRepositoryGateway(UserRepository userRepository,
+    public AuthRepositoryGateway(UserRepository userRepository,
                                  UserEntityMapper userEntityMapper) {
         this.userRepository = userRepository;
         this.userEntityMapper = userEntityMapper;

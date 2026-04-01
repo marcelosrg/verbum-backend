@@ -1,7 +1,6 @@
 package com.verbum.api.infraestructure.gateway;
 
 import com.verbum.api.core.gateway.PasswordHasher;
-import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;

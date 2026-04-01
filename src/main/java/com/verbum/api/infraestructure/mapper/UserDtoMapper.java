@@ -1,6 +1,7 @@
 package com.verbum.api.infraestructure.mapper;
 
 import com.verbum.api.core.domain.User;
+import com.verbum.api.infraestructure.dtos.AuthResponseDto;
 import com.verbum.api.infraestructure.dtos.UserDto;
 import org.springframework.stereotype.Component;
 
@@ -26,4 +27,5 @@ public class UserDtoMapper {
                 user.role()
         );
     }
+
 }
