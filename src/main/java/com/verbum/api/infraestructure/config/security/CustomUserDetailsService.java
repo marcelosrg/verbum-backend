@@ -1,4 +1,4 @@
-package com.verbum.api.infraestructure.security;
+package com.verbum.api.infraestructure.config.security;
 
 import com.verbum.api.infraestructure.persistence.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
