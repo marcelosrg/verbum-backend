@@ -1,30 +1,28 @@
 package com.verbum.api.infraestructure.mapper;
 
 import com.verbum.api.core.domain.User;
+import com.verbum.api.core.enums.Role;
+import com.verbum.api.infraestructure.dtos.AuthRequestDto;
 import com.verbum.api.infraestructure.dtos.AuthResponseDto;
-import com.verbum.api.infraestructure.dtos.UserDto;
 import org.springframework.stereotype.Component;
 
 @Component
 public class UserDtoMapper {
 
-    public User toDomain(UserDto userDto){
+    public User toDomain(AuthRequestDto userDto){
         return new User(
                 userDto.id(),
                 userDto.email(),
                 userDto.password(),
-                userDto.isActive(),
-                userDto.role()
+               true,
+                Role.USER
         );
     }
 
-    public UserDto toDto (User user){
-        return new UserDto(
-                user.id(),
+    public AuthResponseDto toDto (User user){
+        return new AuthResponseDto(
                 user.email(),
-                user.password(),
-                user.isActive(),
-                user.role()
+                user.password()
         );
     }
 

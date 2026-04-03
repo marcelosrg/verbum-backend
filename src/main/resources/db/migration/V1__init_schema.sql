@@ -7,7 +7,7 @@ CREATE TABLE users (
     id UUID PRIMARY KEY DEFAULT uuid_generate_v4(),
     email VARCHAR(255) UNIQUE NOT NULL,
     password TEXT NOT NULL,
-    role DEFAULT 'USER',
+    role VARCHAR(20) DEFAULT 'USER',
     isactive BOOLEAN DEFAULT TRUE,
 
     CONSTRAINT chk_role CHECK ( role in ('ADMIN', 'USER'))

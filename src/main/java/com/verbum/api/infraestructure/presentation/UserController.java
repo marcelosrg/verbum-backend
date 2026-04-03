@@ -2,7 +2,8 @@ package com.verbum.api.infraestructure.presentation;
 
 import com.verbum.api.core.domain.User;
 import com.verbum.api.core.useCases.Auth.RegisterUserUseCase;
-import com.verbum.api.infraestructure.dtos.UserDto;
+import com.verbum.api.infraestructure.dtos.AuthRequestDto;
+import com.verbum.api.infraestructure.dtos.AuthResponseDto;
 import com.verbum.api.infraestructure.mapper.UserDtoMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -22,9 +23,9 @@ public class UserController {
         this.userDtoMapper = userDtoMapper;
     }
     @PostMapping()
-    public ResponseEntity<UserDto> createUser(@RequestBody UserDto userDto) {
-        User createUser = registerUserUseCase.execute(userDtoMapper.toDomain(userDto));
-        UserDto responseDto = userDtoMapper.toDto(createUser);
+    public ResponseEntity<AuthResponseDto> createUser(@RequestBody AuthRequestDto authRequestDto) {
+        User createUser = registerUserUseCase.execute(userDtoMapper.toDomain(authRequestDto));
+        AuthResponseDto responseDto = userDtoMapper.toDto(createUser);
         URI location = ServletUriComponentsBuilder
                 .fromCurrentRequest()
                 .path("/{id}")
@@ -34,9 +35,4 @@ public class UserController {
         return ResponseEntity.created(location).body(responseDto);
     }
 
-
-    @GetMapping
-    public String hello() {
-        return "Hello world";
-    }
 }
