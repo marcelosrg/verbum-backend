@@ -21,6 +21,10 @@ public class RegisterUserUseCaseImpl implements RegisterUserUseCase {
     @Override
     public User execute(User user) {
 
+        if(authGateway.checkEmail(user.email())){
+            throw new DuplicateException("O email ja existe!");
+        }
+
         String hashedPassword = passwordHasher.hashPassord(user.password());
 
         User newUser = new User(
@@ -30,12 +34,6 @@ public class RegisterUserUseCaseImpl implements RegisterUserUseCase {
                 true,
                 Role.USER
         );
-
-
-        if(authGateway.checkEmail(newUser.email())){
-            throw new DuplicateException("O email ja existe!");
-        }
-
 
         return authGateway.registerUser(newUser);
     }

@@ -12,7 +12,7 @@ public class BCryptPasswordHasher implements PasswordHasher {
     private final PasswordEncoder passwordEncoder;
 
     public BCryptPasswordHasher(PasswordEncoder passwordEncoder) {
-        this.passwordEncoder = new BCryptPasswordEncoder();
+        this.passwordEncoder = passwordEncoder;
     }
 
     @Override
