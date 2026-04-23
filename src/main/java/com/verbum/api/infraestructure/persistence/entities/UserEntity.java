@@ -1,4 +1,4 @@
-package com.verbum.api.infraestructure.persistence;
+package com.verbum.api.infraestructure.persistence.entities;
 
 import com.verbum.api.core.enums.Role;
 import jakarta.persistence.*;
@@ -53,6 +53,8 @@ public class UserEntity implements UserDetails {
     private UUID id;
     private String email;
     private String password;
+
+
     @Column(name = "isactive")
     private Boolean isActive;
     @Enumerated(EnumType.STRING)

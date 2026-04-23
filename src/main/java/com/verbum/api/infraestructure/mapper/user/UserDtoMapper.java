@@ -1,9 +1,9 @@
-package com.verbum.api.infraestructure.mapper;
+package com.verbum.api.infraestructure.mapper.user;
 
 import com.verbum.api.core.domain.User;
 import com.verbum.api.core.enums.Role;
-import com.verbum.api.infraestructure.dtos.AuthRequestDto;
-import com.verbum.api.infraestructure.dtos.AuthResponseDto;
+import com.verbum.api.infraestructure.dtos.Auth.AuthRequestDto;
+import com.verbum.api.infraestructure.dtos.Auth.AuthResponseDto;
 import org.springframework.stereotype.Component;
 
 @Component

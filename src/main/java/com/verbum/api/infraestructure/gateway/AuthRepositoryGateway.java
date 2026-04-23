@@ -2,15 +2,12 @@ package com.verbum.api.infraestructure.gateway;
 
 import com.verbum.api.core.domain.User;
 import com.verbum.api.core.gateway.AuthGateway;
-import com.verbum.api.infraestructure.mapper.UserEntityMapper;
-import com.verbum.api.infraestructure.persistence.UserEntity;
-import com.verbum.api.infraestructure.persistence.UserRepository;
+import com.verbum.api.infraestructure.mapper.user.UserEntityMapper;
+import com.verbum.api.infraestructure.persistence.entities.UserEntity;
+import com.verbum.api.infraestructure.persistence.repositories.UserRepository;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
 @Component

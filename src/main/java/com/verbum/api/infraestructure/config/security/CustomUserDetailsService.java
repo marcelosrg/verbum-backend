@@ -1,6 +1,6 @@
 package com.verbum.api.infraestructure.config.security;
 
-import com.verbum.api.infraestructure.persistence.UserRepository;
+import com.verbum.api.infraestructure.persistence.repositories.UserRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;

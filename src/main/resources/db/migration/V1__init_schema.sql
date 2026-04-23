@@ -18,10 +18,12 @@ CREATE TABLE users (
 -- =========================
 CREATE TABLE profiles (
     id UUID PRIMARY KEY,
+    userId UUID UNIQUE NOT NULL,
+    imageUrl VARCHAR(100),
     username VARCHAR(100) UNIQUE NOT NULL,
     biography TEXT,
     userprofile VARCHAR(255),
-    FOREIGN KEY (id) REFERENCES users(id) ON DELETE CASCADE
+    FOREIGN KEY (userId) REFERENCES users(id) ON DELETE CASCADE
 );
 
 -- =========================

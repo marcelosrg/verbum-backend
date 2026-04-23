@@ -1,8 +1,8 @@
-package com.verbum.api.infraestructure.persistence;
+package com.verbum.api.infraestructure.persistence.repositories;
 
+import com.verbum.api.infraestructure.persistence.entities.UserEntity;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 import java.util.Optional;
 import java.util.UUID;
