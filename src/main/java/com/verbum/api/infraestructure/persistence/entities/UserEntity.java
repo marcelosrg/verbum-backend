@@ -1,4 +1,4 @@
-package com.verbum.api.infraestructure.persistence;
+package com.verbum.api.infraestructure.persistence.entities;
 
 import com.verbum.api.core.enums.Role;
 import jakarta.persistence.*;

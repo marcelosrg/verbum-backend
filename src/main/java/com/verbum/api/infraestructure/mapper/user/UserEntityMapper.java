@@ -1,7 +1,7 @@
-package com.verbum.api.infraestructure.mapper;
+package com.verbum.api.infraestructure.mapper.user;
 
 import com.verbum.api.core.domain.User;
-import com.verbum.api.infraestructure.persistence.UserEntity;
+import com.verbum.api.infraestructure.persistence.entities.UserEntity;
 import org.springframework.stereotype.Component;
 
 @Component
