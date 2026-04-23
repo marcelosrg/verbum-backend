@@ -16,15 +16,16 @@ public class ProfileEntity {
     @GeneratedValue(strategy= GenerationType.UUID)
     private UUID id;
 
-    private String userName;
+    @Column(name = "username")
+    private String username;
 
+    @Column(name = "biography")
     private String biography;
 
-    @Column(nullable = true)
+    @Column(nullable = true, name = "imageUrl")
     private String imageUrl;
 
     @OneToOne(fetch = FetchType.LAZY)
-    @MapsId
     @JoinColumn(name = "userId", unique = true, nullable = false)
     private UserEntity userEntity;
 }
