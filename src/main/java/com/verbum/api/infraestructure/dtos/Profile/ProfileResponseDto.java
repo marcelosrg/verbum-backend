@@ -6,6 +6,7 @@ import java.util.UUID;
 
 public record ProfileResponseDto(UUID id,
                                  String userName,
-                                 String biography
+                                 String biography,
+                                 String imageUrl
                                  ) {
 }

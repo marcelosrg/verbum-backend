@@ -12,6 +12,7 @@ public class ProfileDtoMapper {
                 dto.id(),
                 dto.userName(),
                 dto.biography(),
+                dto.imageUrl(),
                 dto.userId()
 
         );
@@ -21,7 +22,8 @@ public class ProfileDtoMapper {
         return new ProfileResponseDto(
                 profile.id(),
                 profile.userName(),
-                profile.biography()
+                profile.biography(),
+                profile.imageUrl()
         );
     }
 }

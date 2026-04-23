@@ -5,6 +5,7 @@ import java.util.UUID;
 public record Profile ( UUID id,
         String userName,
         String biography,
+        String imageUrl,
         UUID userId){
 
 }

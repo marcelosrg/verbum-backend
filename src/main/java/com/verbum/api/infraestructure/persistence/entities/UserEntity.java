@@ -53,6 +53,8 @@ public class UserEntity implements UserDetails {
     private UUID id;
     private String email;
     private String password;
+
+
     @Column(name = "isactive")
     private Boolean isActive;
     @Enumerated(EnumType.STRING)

@@ -7,5 +7,6 @@ import java.util.UUID;
 public record ProfileRequestDto(UUID id,
                                 String userName,
                                 String biography,
+                                String imageUrl,
                                 UUID userId) {
 }
