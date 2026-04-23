@@ -8,4 +8,7 @@ import java.util.UUID;
 public interface ProfileGateway {
 
     Optional<Profile> getProfile(UUID id);
+    Profile createProfile(Profile profile);
+    boolean checkUserName(String username);
+
 }

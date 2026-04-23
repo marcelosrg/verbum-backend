@@ -4,13 +4,15 @@ import com.verbum.api.core.domain.Profile;
 
 import com.verbum.api.infraestructure.dtos.Profile.ProfileRequestDto;
 import com.verbum.api.infraestructure.dtos.Profile.ProfileResponseDto;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ProfileDtoMapper {
 
     public Profile toDomain(ProfileRequestDto dto){
         return new Profile(
                 dto.id(),
-                dto.userName(),
+                dto.username(),
                 dto.biography(),
                 dto.imageUrl(),
                 dto.userId()
@@ -21,7 +23,7 @@ public class ProfileDtoMapper {
     public ProfileResponseDto toDto (Profile profile){
         return new ProfileResponseDto(
                 profile.id(),
-                profile.userName(),
+                profile.username(),
                 profile.biography(),
                 profile.imageUrl()
         );
