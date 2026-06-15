@@ -60,4 +60,7 @@ public class UserEntity implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Role role;
 
+    @OneToMany(mappedBy = "author")
+    private List<PostEntity>  posts;
+
 }
