@@ -1,5 +1,7 @@
 package com.verbum.api.core.useCases.Auth;
 
+import java.util.List;
+
 import com.verbum.api.core.domain.User;
 import com.verbum.api.core.enums.Role;
 import com.verbum.api.core.exceptions.DuplicateException;
@@ -12,16 +14,15 @@ public class RegisterUserUseCaseImpl implements RegisterUserUseCase {
     private final PasswordHasher passwordHasher;
 
     public RegisterUserUseCaseImpl(AuthGateway authGateway,
-                                   PasswordHasher passwordHasher) {
+            PasswordHasher passwordHasher) {
         this.authGateway = authGateway;
         this.passwordHasher = passwordHasher;
     }
 
-
     @Override
     public User execute(User user) {
 
-        if(authGateway.checkEmail(user.email())){
+        if (authGateway.checkEmail(user.email())) {
             throw new DuplicateException("O email ja existe!");
         }
 
@@ -32,8 +33,8 @@ public class RegisterUserUseCaseImpl implements RegisterUserUseCase {
                 user.email(),
                 hashedPassword,
                 true,
-                Role.USER
-        );
+                Role.USER,
+                List.of());
 
         return authGateway.registerUser(newUser);
     }

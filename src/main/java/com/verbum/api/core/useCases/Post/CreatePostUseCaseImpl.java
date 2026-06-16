@@ -1,11 +1,11 @@
 package com.verbum.api.core.useCases.Post;
 
-import com.verbum.api.core.domain.Post;
+import com.verbum.api.core.domain.Posts;
 
 public class CreatePostUseCaseImpl implements CreatePostUseCase {
 
     @Override
-    public Post execute(Post post) {
+    public Posts execute(Posts post) {
         return null;
     }
 }
