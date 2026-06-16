@@ -4,7 +4,6 @@ import com.verbum.api.core.domain.Profile;
 import com.verbum.api.core.exceptions.NotFoundException;
 import com.verbum.api.core.gateway.ProfileGateway;
 
-import java.util.Optional;
 import java.util.UUID;
 
 public class GetProfileUseCaseImpl implements GetProfileUseCase {

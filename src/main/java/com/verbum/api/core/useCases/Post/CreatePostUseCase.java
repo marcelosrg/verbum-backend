@@ -1,7 +1,7 @@
 package com.verbum.api.core.useCases.Post;
 
-import com.verbum.api.core.domain.Post;
+import com.verbum.api.core.domain.Posts;
 
 public interface CreatePostUseCase {
-    Post execute(Post post);
+    Posts execute(Posts post);
 }
